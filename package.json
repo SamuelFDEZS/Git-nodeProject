@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "mainSeed": "node ./src/seeds/main.seed.js",
+    "vilainSeed": "node ./src/seeds/vilains.seed.js"
   },
   "author": "",
   "license": "ISC",

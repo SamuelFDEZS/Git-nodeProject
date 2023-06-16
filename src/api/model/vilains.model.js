@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
 
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
-const vilainsModel = newSchema({
-    name: {type:String, required: true},
+const vilainsModel = new Schema({
+    nombre: {type:String, required: true},
     franquicia: {type: String, required: true},
     juego_debut: {type: String, required: false},
     descripcion: {type: String, required: false},
@@ -14,5 +14,5 @@ const vilainsModel = newSchema({
     collection: 'vilains'
 })
 
-const Vilains = mongoose.model("Vilains", vilainsModel);
-module.exports = Vilains;
+const vilains = mongoose.model("vilains", vilainsModel);
+module.exports = vilains;
