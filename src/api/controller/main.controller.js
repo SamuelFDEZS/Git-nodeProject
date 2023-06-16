@@ -10,4 +10,40 @@ const getMain = async(req, res) => {
     }
 }
 
-module.exports = {getMain}
+const createCharacter = async(req, res) => {
+    try {
+        const newCharacter = new Main(req.body)
+        const createdCharacter = await newCharacter.save()
+        return res.status(200).json(createCharacter)
+    } catch (error) {
+        return res.status(500).json(error)
+    }
+}
+
+const updateCharacter = async (req, res) => {
+    try {
+        const {id} = req.params;
+    const newCharacter = new Main(req.body)
+    newCharacter._id = id
+    const updChar = await Main.findByIdAndUpdate(id, newCharacter, {
+        new: true
+    })
+    return res.status(200).json(updChar)
+    } catch (error) {
+        return res.status(500).json(error)
+    }
+}
+
+const deleteCharacter = async (req, res) => {
+    try {
+        const {id} = req.params
+    const delCharacter = await Main.findByIdAndDelete(id);
+    if(!delCharacter){
+        return res.status(404).json({message: "Persona no encontrada"})
+    }
+    return res.status(200).json(delCharacter)
+    } catch (error) {
+        return res.status(500).json(error)
+    }
+}
+module.exports ={getMain , createCharacter,updateCharacter,deleteCharacter};
