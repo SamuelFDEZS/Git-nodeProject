@@ -12,7 +12,6 @@ const getMain = async (req, res) => {
 
 const createCharacter = async (req, res) => {
     try {
-        console.log("Estoy1")
         const newCharacter = new Main(req.body)
 
         if (req.file && req.file.path) {
@@ -20,9 +19,6 @@ const createCharacter = async (req, res) => {
         } else {
             newCharacter.imagen = newCharacter.imagen;
         }
-
-
-        console.log("Estoy2")
         const createdCharacter = await newCharacter.save()
         return res.status(200).json(createdCharacter);
     } catch (error) {
