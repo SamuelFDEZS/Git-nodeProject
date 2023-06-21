@@ -10,9 +10,9 @@ const validateEmail = (email) => {
     return regex.test(email)
 }
 
-const usedEmail = (email) => {
-    const mailUsers = User.find({email: email})
-    return mailUsers.length
+const usedEmail = async (email) => {
+    const mailUsers = await User.find({email: email})
+    return mailUsers.length;
 }
 
 module.exports = {validatePassword, validateEmail, usedEmail};
