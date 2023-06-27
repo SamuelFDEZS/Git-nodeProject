@@ -5,8 +5,10 @@ const cloudinary = require("cloudinary").v2;
 const routerMain = require("./src/api/routes/main.routes")
 const routerVilains = require("./src/api/routes/vilains.routes")
 const routerUser = require("./src/api/routes/user.routes")
+const cors = require("cors")
 
 const app = express()
+app.use(cors())
 dotenv.config()
 
 cloudinary.config({
@@ -17,6 +19,7 @@ cloudinary.config({
 
 app.use(express.json())
 connection()
+
 const PORT = process.env.PORT || 5000
 
 app.use("/mainCharacters", routerMain)

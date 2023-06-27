@@ -19,6 +19,7 @@ const createCharacter = async (req, res) => {
         } else {
             newCharacter.imagen = newCharacter.imagen;
         }
+        
         const createdCharacter = await newCharacter.save()
         return res.status(200).json(createdCharacter);
     } catch (error) {
